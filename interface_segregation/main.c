@@ -42,12 +42,12 @@ int main(int argc, char const *argv[])
 	printf("Same class");
 	NEW_LINE();
 
-	Paladin paladin;
-	new_paladin(&paladin, "Cecil");
+	Paladin cecil;
+	new_paladin(&cecil, "Cecil");
 
-	battle_demon(paladin.warrior, paladin.mage);
+	battle_demon(cecil.warrior, cecil.mage);
 
-	free_paladin(paladin);
+	free_paladin(cecil);
 
 	NEW_LINE();
 	return 0;

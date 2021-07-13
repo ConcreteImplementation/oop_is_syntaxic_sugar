@@ -21,15 +21,12 @@ typedef struct _Paladin {
 } _Paladin;
 
 
-
-
 static
 void _heal(IMage* mage){
 	_Paladin* paladin = (_Paladin*) mage;
 
 	printf("%s is healing\n", paladin->name);
 }
-
 
 static
 void _pray(IMage* mage, const char* holyWords) {
@@ -53,11 +50,12 @@ void _thrust(IWarrior* warrior) {
 }
 
 
-
 void new_paladin(Paladin* paladin, char* name) {
 	_Paladin* private_paladin = malloc(sizeof(_Paladin));
-	if ( ! private_paladin) fprintf(stderr, "ERROR MALLOC FAILED");
-
+	if( ! private_paladin) {
+		fprintf(stderr, "malloc failed at new_paladin()\n");
+		exit(1);
+	}
 
 	private_paladin->heal = _heal;
 	private_paladin->pray = _pray;

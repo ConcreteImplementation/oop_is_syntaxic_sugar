@@ -1,8 +1,8 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "IWarrior.h"
+
 
 typedef struct _Knight {
 	void (*slash)(IWarrior*, int);
@@ -29,6 +29,10 @@ void _thrust(IWarrior* warrior) {
 
 IWarrior* new_knight(char* name) {
 	_Knight* knight = malloc(sizeof(_Knight));
+	if( ! knight) {
+		fprintf(stderr, "malloc failed at new_knight()\n");
+		exit(1);
+	}
 
 	knight->slash = _slash;
 	knight->thrust = _thrust;

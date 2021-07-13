@@ -7,4 +7,5 @@ typedef struct IWarrior IWarrior;
 void slash(IWarrior* warrior, int times);
 void thrust(IWarrior* warrior);
 
+
 #endif

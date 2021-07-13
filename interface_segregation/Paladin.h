@@ -2,9 +2,9 @@
 #define _PALADIN_HEADER_
 
 #include <stdlib.h>
+
 #include "IMage.h"
 #include "IWarrior.h"
-
 
 
 typedef const struct Paladin {

@@ -1,8 +1,4 @@
-
-
 typedef struct IWarrior IWarrior;
-
-
 typedef struct IWarrior {
 	void (*slash)(IWarrior*, int);
 	void (*thrust)(IWarrior*);
