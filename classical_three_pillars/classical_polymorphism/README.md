@@ -9,7 +9,7 @@ typedef struct Square {
 } Square;
 
 // pointer casting
-area = form_get_area( (Form*) suqare );
+area = form_get_area( (Form*) square );
 
 // redrection to a function pointer
 double form_get_area(Form* form) {
