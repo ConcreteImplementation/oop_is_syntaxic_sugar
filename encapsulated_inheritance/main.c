@@ -21,8 +21,11 @@ int main(int argc, char const *argv[])
 	
 	NEW_LINE();
 
+	printf("\n\t[attack(): preserved Character function]\n");
 	attack(aggripa.character, demon);
+	printf("\n\t[invoke(): a Summoner's own function]\n");
 	invoke(aggripa.summoner, demon, "Apocalypse knights");
+	printf("\n\t[escape(): override Character function]\n");
 	escape(aggripa.character);
 
 

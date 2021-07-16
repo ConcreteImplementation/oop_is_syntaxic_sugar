@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Character_type.h"
+#include "Character_internal.h"
 #include "Summoner.h"
 
 typedef struct Summoner {
 	Character character;
 } Summoner;
+
 
 
 void invoke(Summoner* summoner, Character* ennemy, char* entityName) {
@@ -19,12 +20,15 @@ void invoke(Summoner* summoner, Character* ennemy, char* entityName) {
 }
 
 
+
 static
 void _escape(Character* summoner) {
 	char* name = get_name( (Character*) summoner);
 
 	printf("%s mysteriously vanished\n", name);
 }
+
+
 
 ASummoner new_summoner(char* name, int strength) {
 	Summoner* summoner = malloc(sizeof(Summoner));
@@ -33,16 +37,15 @@ ASummoner new_summoner(char* name, int strength) {
 		exit(1);
 	}
 
-	Character* character = new_character(name, strength);
-	memcpy( (void*) summoner, character, sizeof(Character) );
-	free(character);
-
+	summoner->character = build_character(name, strength);
 	summoner->character.escape = _escape;
 
 	ASummoner asummoner;
 	memcpy((void*) &(asummoner.summoner), &summoner, sizeof(void*));
 	return asummoner;
 }
+
+
 
 void free_summoner(ASummoner summoner) {
 	free((void*)summoner.summoner);

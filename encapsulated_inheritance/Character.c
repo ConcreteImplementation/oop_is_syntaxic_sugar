@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Character_type.h"
+#include "Character_internal.h"
 
 
 char* get_name(Character* character) {
@@ -38,6 +38,22 @@ void _escape(Character* character) {
 	printf("%s escaped\n", character->name);
 }
 
+
+
+
+Character build_character(char* name, int strength) {
+	Character character;
+
+	character.name = name;
+	character.health = 100;
+	character.strength = strength;
+	character.attack = _attack;
+	character.escape = _escape;
+
+	return character;
+}
+
+
 Character* new_character(char* name, int strength) {
 	Character* character = malloc(sizeof(Character));
 	if( ! character) {
@@ -45,11 +61,7 @@ Character* new_character(char* name, int strength) {
 		exit(1);
 	}
 
-	character->name = name;
-	character->health = 100;
-	character->strength = strength;
-	character->attack = _attack;
-	character->escape = _escape;
+	*character = build_character(name, strength);
 
 	return character;
 }

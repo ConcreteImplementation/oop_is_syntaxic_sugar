@@ -1,5 +1,5 @@
-#ifndef _CHARACTER_TYPE_HEADER_
-#define _CHARACTER_TYPE_HEADER_
+#ifndef _CHARACTER_INTERNAL_HEADER_
+#define _CHARACTER_INTERNAL_HEADER_
 
 typedef struct Character Character;
 typedef struct Character {
@@ -11,5 +11,6 @@ typedef struct Character {
 	void(*escape)(Character*);
 } Character;
 
+Character build_character(char* name, int strength) ;
 
 #endif
